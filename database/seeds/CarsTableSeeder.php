@@ -15,7 +15,9 @@ class CarsTableSeeder extends Seeder
     {
       for ($i=0; $i < 10; $i++) {
         $new_car = new Car();
-        $new_car->manifacturer = $faker->randomElement(['ford' , 'bmw', 'fiat', 'audi', 'alfa romeo', 'auto bianchi', 'ferrari']);
+        $new_car->manifacturer = $faker->randomElement(['Ford' , 'Bmw', 'Fiat', 'Audi', 'Alfa Romeo', 'Autobianchi', 'Ferrari']);
+        $new_car->model = $faker->randomElement(['Fiesta' , 'I3', 'Punto', 'Quattro', '8C', 'A112', 'FXX']);
+        $new_car->imgurl = $faker->imageUrl;
         $new_car->year = $faker->year;
         $new_car->engine = $faker->randomElement(['1200', 'v6', 'v8', 'v12']);
         $new_car->plate = $faker->word;

@@ -18,6 +18,14 @@
   <input type="text" name="manifacturer" value="{{ old('manifacturer')}}" placeholder="manifacturer">
   <br>
   <br>
+  <label>Model:</label><br>
+  <input type="text" name="model" value="{{ old('model') }}" placeholder="model">
+  <br>
+  <br>
+  <label>Url Image:</label><br>
+  <input type="text" name="imgurl" value="{{ old('imgurl') }}" placeholder="imgurl">
+  <br>
+  <br>
   <label>Year:</label><br>
   <input type="number" name="year" value="{{ old('year')}}" placeholder="year">
   <br>
@@ -52,3 +60,5 @@
   <br>
   <input type="submit" name="" value="save">
 </form>
+
+<a href="{{ route('cars.index')}}">go back</a>

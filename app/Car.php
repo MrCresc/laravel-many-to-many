@@ -9,6 +9,10 @@ class Car extends Model
   protected $fillable = [
     'user_id',
     'manifacturer',
+    'model',
+    'imgurl',
+    'model',
+    'imgurl',
     'year',
     'engine',
     'plate',

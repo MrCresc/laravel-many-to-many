@@ -17,12 +17,15 @@ ul {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  .singleCar {
-    flex-basis: calc(100% / 5);
-    padding: 10px;
-    img {
-      width: 256px;
-      height: 256px;
-    }
-  }
 }
+
+.main_wrapper .singleCar {
+  flex-basis: calc(100% / 5);
+  padding: 10px;
+}
+
+.main_wrapper .singleCar img {
+  width: 256px;
+  height: 256px;
+}
+

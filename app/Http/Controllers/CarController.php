@@ -52,6 +52,8 @@ class CarController extends Controller
         // Nuova istanza Car
         $new_car = new Car();
         $new_car->manifacturer = $requested_data['manifacturer'];
+        $new_car->model = $requested_data['model'];
+        $new_car->imgurl = $requested_data['imgurl'];
         $new_car->year = $requested_data['year'];
         $new_car->engine = $requested_data['engine'];
         $new_car->plate = $requested_data['plate'];
@@ -84,9 +86,12 @@ class CarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Car $car)
     {
-        //
+      $tags = Tag::all();
+      $users = User::all();
+
+      return view('cars.edit', compact('car','tags','users'));
     }
 
     /**
@@ -96,9 +101,20 @@ class CarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Car $car)
     {
-        //
+      // Validazione
+      $request->validate($this->validationData());
+      $requested_data = $request->all();
+
+      if (isset($requested_data['tags'])) {
+        $car->tags()->sync($requested_data['tags']);
+      } else {
+        $car->tags()->detach();
+      }
+
+      $car->update($requested_data);
+      return redirect()->route('cars.show',$car);
     }
 
     /**
@@ -107,15 +123,19 @@ class CarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Car $car)
     {
-        //
+      $car->tags()->detach();
+      $car->delete();
+      return redirect()->route('cars.index');
     }
 
     public function validationData() {
       return [
         'manifacturer' => 'required|max:255',
-        'year' => 'required|integer|min:1990|max:2020',
+        'model' => 'required|max:255',
+        'imgurl' => 'required',
+        'year' => 'required|integer|min:1860|max:2020',
         'engine' => 'required|max:255',
         'plate' => 'required|max:255',
         'user_id' => 'required|integer',
