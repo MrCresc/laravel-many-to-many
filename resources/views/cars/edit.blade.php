@@ -1,4 +1,10 @@
-<h1>Modifica informazioni auto</h1>
+@extends('layouts.standard')
+@section('page_title')
+  Cars Edit
+@endsection
+
+@section('main_content')
+<h2>Modifica informazioni auto</h2>
 
 {{-- Validazione form --}}
 @if ($errors->any())
@@ -63,3 +69,4 @@
 </form>
 
 <a href="{{ route('cars.index')}}">go back</a>
+@endsection

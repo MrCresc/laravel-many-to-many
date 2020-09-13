@@ -1,4 +1,4 @@
-<h1>Add auto</h1>
+<h2>Add auto</h2>
 {{-- Validazione form --}}
 @if ($errors->any())
   <div class="alert alert-danger">

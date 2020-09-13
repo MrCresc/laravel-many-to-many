@@ -3,29 +3,97 @@
   padding: 0;
   box-sizing: border-box;
   text-align: center;
+  color: white;
 }
 
 a {
   text-decoration: none;
 }
 
+.standard_btn {
+  font-size: 16px;
+  margin: 5px;
+  cursor: pointer;
+  padding: 2px 5px;
+  background-color: gray;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+.standard_btn.create_car {
+  padding: 4px 8px;
+}
+
+.delete_btn {
+  font-size: 16px;
+  margin: 5px;
+  cursor: pointer;
+  padding: 2px 5px;
+  background-color: gray;
+  border-radius: 5px;
+  border: 1px solid white;
+  color: red;
+}
+
 ul {
   list-style: none;
 }
 
-.main_wrapper {
+select,
+input {
+  color: black;
+  font-style: italic;
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+header nav .logo {
+  width: 100px;
+}
+
+main {
+  min-height: 100vh;
+  background: black;
+  background: linear-gradient(180deg, black 0%, #d7dbd8 25%, black 75%);
+}
+
+main .top_bar_btn {
+  margin: 15px 0;
+}
+
+main .main_wrapper {
+  margin-top: 15px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.main_wrapper .singleCar {
+main .main_wrapper .singleCar {
   flex-basis: calc(100% / 5);
+  margin: 10px;
   padding: 10px;
 }
 
-.main_wrapper .singleCar img {
+main .main_wrapper .singleCar.selectable:hover {
+  background-color: rgba(219, 0, 0, 0.1);
+  box-shadow: 0 0 8px red;
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+
+main .main_wrapper .singleCar img {
   width: 256px;
   height: 256px;
+}
+
+main .main_wrapper .singleCar .btn_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
